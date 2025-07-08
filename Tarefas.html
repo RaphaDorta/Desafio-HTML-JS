@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <p>DESAFIO 3 – Lista de Tarefas Simples</p>
+    <p>Crie um campo de texto e um botão "Adicionar Tarefa".</p>
+    <p>Ao clicar, a tarefa digitada aparece em uma lista <code>"ul"</code>.</p>
+    <p>Permita que o usuário remova a tarefa ao clicar nela.</p>
+
+    <input type="text" id="tarefa" placeholder="Digite uma tarefa">
+    <button id="adicionarTarefa">Adicionar Tarefa</button>
+
+    <ul id="tarefas"></ul>
+    
+    <script>
+        const inputTarefa = document.getElementById('tarefa');
+        const btnAdicionar = document.getElementById('adicionarTarefa');
+        const listaTarefas = document.getElementById('tarefas');
+
+        btnAdicionar.addEventListener('click', function () {
+            const texto = inputTarefa.value.trim();
+
+            if (texto === '') {
+                alert('Digite uma tarefa antes de adicionar!');
+                return;
+            }
+
+            const li = document.createElement('li');
+            li.textContent = texto;
+
+            // Permite remover a tarefa ao clicar nela
+            li.addEventListener('click', function () {
+                listaTarefas.removeChild(li);
+            });
+
+            listaTarefas.appendChild(li);
+            inputTarefa.value = ''; // limpa o campo
+            inputTarefa.focus();    // foca de novo no campo
+        });
+    </script>
+</body>
+</html>

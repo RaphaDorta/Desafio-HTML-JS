@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jogo Par ou Ímpar</title>
+</head>
+<body>
+  <p><strong>DESAFIO 6 – Jogo de Par ou Ímpar</strong></p>
+  <p>Peça dois números: um do usuário e um aleatório (de 1 a 10).</p>
+  <p>Mostre se a soma é par ou ímpar.</p>
+  <p>Mostre se o usuário ganhou (acertou o resultado).</p>
+
+  <input type="number" id="numUsuario" placeholder="Digite um número de 1 a 10" />
+  <br /><br />
+  <button id="escolhaPar">Par</button>
+  <button id="escolhaImpar">Ímpar</button>
+
+  <p id="numAleatorio"></p>
+  <p id="resultado"></p>
+
+  <script>
+    const inputUsuario = document.getElementById('numUsuario');
+    const btnPar = document.getElementById('escolhaPar');
+    const btnImpar = document.getElementById('escolhaImpar');
+    const resultado = document.getElementById('resultado');
+    const numAleatorioText = document.getElementById('numAleatorio');
+
+    function jogar(escolhaUsuario) {
+      const valorUsuario = parseInt(inputUsuario.value);
+
+      if (isNaN(valorUsuario) || valorUsuario < 1 || valorUsuario > 10) {
+        alert('Digite um número válido entre 1 e 10!');
+        return;
+      }
+
+      const aleatorio = Math.floor(Math.random() * 10) + 1;
+      const soma = valorUsuario + aleatorio;
+      const resultadoParOuImpar = soma % 2 === 0 ? 'Par' : 'Ímpar';
+
+      numAleatorioText.textContent = `Número aleatório: ${aleatorio}`;
+      const acertou = escolhaUsuario === resultadoParOuImpar;
+
+      resultado.textContent = `A soma deu ${soma} (${resultadoParOuImpar}). Você ${acertou ? 'ganhou 🎉' : 'perdeu 😢'}.`;
+    }
+
+    btnPar.addEventListener('click', () => jogar('Par'));
+    btnImpar.addEventListener('click', () => jogar('Ímpar'));
+  </script>
+</body>
+</html>

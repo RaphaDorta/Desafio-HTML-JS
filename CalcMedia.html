@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Desafio calculadora de Média</title>
+    </head>
+    <body>
+        <p> DESAFIO 1 – Calculadora de Média </p>
+        <p>Crie uma página com 3 campos numéricos e um botão "Calcular Média".</p>
+        <p>Ao clicar, mostre o resultado em um parágrafo abaixo.</p>
+        <p>Se algum campo estiver vazio, mostre um alerta.</p>
+        
+        <p>Adicione numeros</p>
+        <input type="number" name="primeironum" id="primeironum">
+        <input type="number" name="segundonum" id="segundonum">
+        <input type="number" name="terceironum" id="terceironum">
+        <button onclick="calcMedia()">Calcular média</button>
+        <p id="resultado"></p>
+        <script>
+            function calcMedia() {
+                const n1 = document.getElementById('primeironum').value;
+                const n2 = document.getElementById('segundonum').value;
+                const n3 = document.getElementById('terceironum').value;
+
+                // Verifica se algum campo está vazio
+                if (n1 === '' || n2 === '' || n3 === '') {
+                    alert('Preencha todos os campos!');
+                    return;
+                }
+
+                // Converte para número e calcula a média
+                const media = (Number(n1) + Number(n2) + Number(n3)) / 3;
+
+                // Exibe o resultado
+                document.getElementById('resultado').textContent = `A média é: ${media.toFixed(2)}`;
+            }
+        </script>
+    </body>
+</html>
