@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Filtro de Lista</title>
+</head>
+<body>
+  <p>
+    🧠 DESAFIO 10 – Filtro de Lista <br>
+    Crie uma lista de nomes fixa em um array. <br>
+    Adicione um campo de busca que filtra em tempo real a lista de nomes na tela conforme o usuário digita.
+  </p>
+
+  <input type="text" id="filtrar" placeholder="Digite um nome">
+  <ul id="listaNomes"></ul>
+
+  <script>
+    const nomes = ['Raphael', 'Larissa', 'Marcos', 'Patricia', 'Valentina', 'July', 'Sarah', 'Lufy'];
+    const filtro = document.getElementById('filtrar');
+    const listaNomes = document.getElementById('listaNomes');
+
+    // Função que atualiza a lista na tela com base no filtro
+    function atualizarLista(filtroTexto) {
+      // Limpa a lista
+      listaNomes.innerHTML = '';
+
+      // Filtra os nomes
+      const nomesFiltrados = nomes.filter(nome =>
+        nome.toLowerCase().includes(filtroTexto.toLowerCase())
+      );
+
+      // Mostra os nomes filtrados
+      nomesFiltrados.forEach(nome => {
+        const li = document.createElement('li');
+        li.textContent = nome;
+        listaNomes.appendChild(li);
+      });
+    }
+
+    // Evento de digitação no campo
+    filtro.addEventListener('input', () => {
+      atualizarLista(filtro.value);
+    });
+
+    // Inicializa a lista com todos os nomes
+    atualizarLista('');
+  </script>
+</body>
+</html>

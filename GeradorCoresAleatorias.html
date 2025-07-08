@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Cores Aleatórias</title>
+</head>
+<body>
+    <p>
+        🧠 DESAFIO 8 – Gerador de Cores Aleatórias <br>
+        Crie um botão “Gerar Cor”. <br>
+        Ao clicar, gere uma cor de fundo aleatória e exiba o valor hexadecimal da cor (ex: #a1b2c3).
+    </p>
+    <button id="btnGeraCor">Gerar cor aleatória</button>
+    <p id="cor"></p>
+
+    <script>
+        btnGeraCor.addEventListener('click', () => {
+            const corAleatoria = '#' + Math.floor(Math.random()*16777215).toString(16);
+            document.body.style.backgroundColor = corAleatoria;
+            document.getElementById('cor').textContent = `A cor gerada é: ${corAleatoria}`
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador Dinâmico</title>
+</head>
+<body>
+  <p>
+    🧠 DESAFIO 9 – Contador Dinâmico <br>
+    Crie um contador com botões "+" e "−". <br>
+    O número na tela aumenta ou diminui. <br>
+    Não pode passar de 0 nem de 10. <br>
+    (Dica: Math.min e Math.max)
+  </p>
+
+  <button id="btnmais">+</button>
+  <button id="btnmenos">−</button>
+
+  <p id="contador">0</p>
+
+  <script>
+    let contador = 0;
+
+    const btnMais = document.getElementById('btnmais');
+    const btnMenos = document.getElementById('btnmenos');
+    const display = document.getElementById('contador');
+
+    function atualizarDisplay() {
+      display.textContent = contador;
+    }
+
+    btnMais.addEventListener('click', () => {
+      contador = Math.min(contador + 1, 10); // não passa de 10
+      atualizarDisplay();
+    });
+
+    btnMenos.addEventListener('click', () => {
+      contador = Math.max(contador - 1, 0); // não desce de 0
+      atualizarDisplay();
+    });
+  </script>
+</body>
+</html>
