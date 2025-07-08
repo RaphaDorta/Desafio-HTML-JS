@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudar de Cor</title>
+</head>
+<body>
+    <p>Crie 3 botões: "Vermelho", "Verde" e "Azul".</p>
+    <p>Ao clicar em cada um, o fundo da página muda para aquela cor.</p>
+    <p>Dica: use addEventListener.</p>
+
+    <button id="btnVermelho">Vermelho</button>
+    <button id="btnVerde">Verde</button>
+    <button id="btnAzul">Azul</button>
+
+    <script>
+        const btnVermelho = document.getElementById('btnVermelho');
+        const btnVerde = document.getElementById('btnVerde');
+        const btnAzul = document.getElementById('btnAzul');
+
+        btnVermelho.addEventListener('click', () => {
+            document.body.style.backgroundColor = '#ff0000';
+        });
+
+        btnVerde.addEventListener('click', () => {
+            document.body.style.backgroundColor = '#00ff00';
+        });
+
+        btnAzul.addEventListener('click', () => {
+            document.body.style.backgroundColor = '#0000ff';
+        });
+    </script>
+</body>
+</html>

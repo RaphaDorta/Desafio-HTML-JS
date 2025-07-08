@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teclado Virtual</title>
+</head>
+<body>
+    <p><strong>DESAFIO 4 – Teclado Virtual</strong></p>
+    <p>Detecte teclas pressionadas e exiba na tela.</p>
+    <p>Exemplo: ao pressionar "A", mostra: Você pressionou: A.</p>
+    <p>Dica: use <code>keydown</code> e <code>e.key</code>.</p>
+
+    <p id="resultado" style="font-size: 20px; color: blue;"></p>
+
+    <script>
+        const resultado = document.getElementById('resultado');
+
+        document.addEventListener('keydown', function(e) {
+            resultado.textContent = `Você pressionou: ${e.key}`;
+        });
+    </script>
+</body>
+</html>

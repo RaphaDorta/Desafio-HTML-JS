@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 5 – Cronômetro</title>
+    <style>
+        #tempo {
+            font-size: 40px;
+            color: #333;
+            margin: 20px 0;
+        }
+        button {
+            margin-right: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <p>🧠 DESAFIO 5 – Cronômetro</p>
+    <p>Crie um cronômetro com botões: Iniciar, Pausar e Resetar.</p>
+    <p>Mostre os segundos passando na tela.</p>
+    <p>Use setInterval e clearInterval.</p>
+
+    <div id="tempo">0</div>
+    <button id="iniciar">Iniciar</button>
+    <button id="pausar">Pausar</button>
+    <button id="resetar">Resetar</button>
+
+    <script>
+        let segundos = 0;
+        let intervalo = null;
+
+        const tempo = document.getElementById('tempo');
+        const btnIniciar = document.getElementById('iniciar');
+        const btnPausar = document.getElementById('pausar');
+        const btnResetar = document.getElementById('resetar');
+
+        function atualizarTempo() {
+            tempo.textContent = segundos;
+        }
+
+        btnIniciar.addEventListener('click', () => {
+            if (intervalo === null) {
+                intervalo = setInterval(() => {
+                    segundos++;
+                    atualizarTempo();
+                }, 1000);
+            }
+        });
+
+        btnPausar.addEventListener('click', () => {
+            clearInterval(intervalo);
+            intervalo = null;
+        });
+
+        btnResetar.addEventListener('click', () => {
+            clearInterval(intervalo);
+            intervalo = null;
+            segundos = 0;
+            atualizarTempo();
+        });
+    </script>
+</body>
+</html>
